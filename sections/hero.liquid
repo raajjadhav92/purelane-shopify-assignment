@@ -1,0 +1,249 @@
+{{ 'purelane-hero.css' | asset_url | stylesheet_tag }}
+
+<section class="purelane hero" id="{{ section.id }}">
+  <div class="wrap hero-grid">
+
+    {%- if section.settings.badge_1_text != blank or section.settings.badge_2_text != blank or section.settings.badge_3_text != blank -%}
+      <div class="badges glass-2" aria-label="Product promises">
+        {%- if section.settings.badge_1_text != blank -%}
+          <div class="badge">
+            <span class="bi">{{ section.settings.badge_1_icon }}</span>
+            <span>{{ section.settings.badge_1_text }}</span>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.badge_2_text != blank -%}
+          <div class="badge">
+            <span class="bi">{{ section.settings.badge_2_icon }}</span>
+            <span>{{ section.settings.badge_2_text }}</span>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.badge_3_text != blank -%}
+          <div class="badge">
+            <span class="bi">{{ section.settings.badge_3_icon }}</span>
+            <span>{{ section.settings.badge_3_text }}</span>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="hero-copy">
+      <h1 class="d1 rv in">{{ section.settings.heading }}</h1>
+
+      <div class="rule rv rv-d1">
+        <i></i>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c0-6.5 3.5-11 8-12.5C20 15 16.5 20 12 21Z"/><path d="M12 21C12 14.5 8.5 10 4 8.5 4 15 7.5 20 12 21Z"/></svg>
+        <i></i>
+      </div>
+
+      {%- if section.settings.lede != blank -%}
+        <p class="lede rv rv-d2">{{ section.settings.lede }}</p>
+      {%- endif -%}
+
+      <div class="hero-cta rv rv-d3">
+        {%- if section.settings.primary_label != blank -%}
+          <a class="btn btn-primary" href="{{ section.settings.primary_link | default: '#' }}">
+            {{ section.settings.primary_label }}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m-5-6 6 6-6 6"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if section.settings.secondary_label != blank -%}
+          <a class="btn btn-ghost" href="{{ section.settings.secondary_link | default: '#' }}">{{ section.settings.secondary_label }}</a>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.badge_1_text != blank or section.settings.badge_2_text != blank or section.settings.badge_3_text != blank -%}
+        <div class="badgestrip rv rv-d4">
+          {%- if section.settings.badge_1_text != blank -%}
+            <div class="glass-2">{{ section.settings.badge_1_icon }}{{ section.settings.badge_1_text | strip_newlines | replace: '<br>', ' ' }}</div>
+          {%- endif -%}
+          {%- if section.settings.badge_2_text != blank -%}
+            <div class="glass-2">{{ section.settings.badge_2_icon }}{{ section.settings.badge_2_text | strip_newlines | replace: '<br>', ' ' }}</div>
+          {%- endif -%}
+          {%- if section.settings.badge_3_text != blank -%}
+            <div class="glass-2">{{ section.settings.badge_3_icon }}{{ section.settings.badge_3_text | strip_newlines | replace: '<br>', ' ' }}</div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="hero-prod" id="heroProd-{{ section.id }}">
+        <div class="hstage" id="hstage-{{ section.id }}">
+          {%- for block in section.blocks -%}
+            {%- assign slide_index = forloop.index -%}
+            <div class="hslide hs{{ slide_index }}{% if forloop.first %} on{% endif %}" data-n="{{ slide_index }}" {{ block.shopify_attributes }}>
+
+              {%- comment -%}
+                Each slide N stacks the images from blocks 1..N, oldest first (shortest,
+                furthest back) and the current block's own image last (tallest, frontmost) —
+                matching the prototype's 1 -> 2 -> 3 product build-up.
+              {%- endcomment -%}
+              {%- assign stack_count = forloop.index -%}
+              {%- for stacked_block in section.blocks limit: stack_count -%}
+                {%- if stacked_block.settings.image -%}
+                  <span class="hp" style="background-image:url({{ stacked_block.settings.image | image_url: width: 500 }})" role="img" aria-label="{{ stacked_block.settings.image.alt | default: stacked_block.settings.label | escape }}"></span>
+                {%- endif -%}
+              {%- endfor -%}
+
+              <div class="glass-2 ptag">
+                <span class="lbl">{{ block.settings.label }}</span>
+                <span class="val">
+                  <strong>{{ block.settings.price }}</strong>
+                  {%- if block.settings.compare_price != blank -%}<s>{{ block.settings.compare_price }}</s>{%- endif -%}
+                </span>
+                {%- if block.settings.badge != blank -%}<span class="cut">{{ block.settings.badge }}</span>{%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        {%- if section.blocks.size > 1 -%}
+          <div class="hdots" id="hdots-{{ section.id }}">
+            {%- for block in section.blocks -%}
+              <button type="button" class="{% if forloop.first %}on{% endif %}" aria-label="Show slide {{ forloop.index }}"></button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+<script src="{{ 'purelane-hero.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Purelane Hero",
+  "tag": "section",
+  "class": "purelane-section",
+  "settings": [
+    {
+      "type": "html",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Clean<br>That<br><span class=\"lime\">Lasts</span>"
+    },
+    {
+      "type": "textarea",
+      "id": "lede",
+      "label": "Supporting text",
+      "default": "Homecare that works on the toughest grime, made from plants. Kind to your home, your family and the world outside it."
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary button label",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary button label",
+      "default": "How it works"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "header",
+      "content": "Trust badges"
+    },
+    {
+      "type": "html",
+      "id": "badge_1_icon",
+      "label": "Badge 1 icon (SVG)",
+      "default": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 21c0-6.5 3.5-11 8-12.5C20 15 16.5 20 12 21Z\"/><path d=\"M12 21C12 14.5 8.5 10 4 8.5 4 15 7.5 20 12 21Z\"/></svg>"
+    },
+    {
+      "type": "text",
+      "id": "badge_1_text",
+      "label": "Badge 1 text",
+      "default": "Plant powered"
+    },
+    {
+      "type": "html",
+      "id": "badge_2_icon",
+      "label": "Badge 2 icon (SVG)",
+      "default": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3 4.5 6v6.2c0 4.3 3.1 7.6 7.5 8.8 4.4-1.2 7.5-4.5 7.5-8.8V6L12 3Z\"/><path d=\"m9 12 2.2 2.2L15.4 10\"/></svg>"
+    },
+    {
+      "type": "text",
+      "id": "badge_2_text",
+      "label": "Badge 2 text",
+      "default": "Safe for kids & pets"
+    },
+    {
+      "type": "html",
+      "id": "badge_3_icon",
+      "label": "Badge 3 icon (SVG)",
+      "default": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"8.4\"/><path d=\"M6.4 17.6 17.6 6.4\"/></svg>"
+    },
+    {
+      "type": "text",
+      "id": "badge_3_text",
+      "label": "Badge 3 text",
+      "default": "Zero harsh chemicals"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Product slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Slide label",
+          "default": "Single bottle"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "₹200"
+        },
+        {
+          "type": "text",
+          "id": "compare_price",
+          "label": "Compare-at price (optional)",
+          "default": "₹299"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Corner badge text",
+          "default": "33% off"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Purelane Hero",
+      "blocks": [
+        { "type": "slide" },
+        { "type": "slide" },
+        { "type": "slide" }
+      ]
+    }
+  ]
+}
+{% endschema %}
