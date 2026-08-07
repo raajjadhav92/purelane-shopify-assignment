@@ -81,7 +81,8 @@
               {%- assign stack_count = forloop.index -%}
               {%- for stacked_block in section.blocks limit: stack_count -%}
                 {%- if stacked_block.settings.image -%}
-                  <span class="hp" style="background-image:url({{ stacked_block.settings.image | image_url: width: 500 }})" role="img" aria-label="{{ stacked_block.settings.image.alt | default: stacked_block.settings.label | escape }}"></span>
+                  {%- assign img_alt = stacked_block.settings.image.alt | default: stacked_block.settings.label -%}
+                  {{- stacked_block.settings.image | image_tag: class: 'hp', widths: '250, 500, 750', alt: img_alt, loading: 'lazy' -}}
                 {%- endif -%}
               {%- endfor -%}
 
