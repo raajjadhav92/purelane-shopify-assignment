@@ -81,8 +81,18 @@
               {%- assign stack_count = forloop.index -%}
               {%- for stacked_block in section.blocks limit: stack_count -%}
                 {%- if stacked_block.settings.image -%}
-                  {%- assign img_alt = stacked_block.settings.image.alt | default: stacked_block.settings.label -%}
-                  {{- stacked_block.settings.image | image_tag: class: 'hp', widths: '250, 500, 750', alt: img_alt, loading: 'lazy' -}}
+                  {%- liquid
+                    assign img_alt = stacked_block.settings.image.alt | default: stacked_block.settings.label
+                  -%}
+                  <img
+                    class="hp"
+                    src="{{ stacked_block.settings.image | image_url: width: 750 }}"
+                    srcset="{{ stacked_block.settings.image | image_url: width: 250 }} 250w, {{ stacked_block.settings.image | image_url: width: 500 }} 500w, {{ stacked_block.settings.image | image_url: width: 750 }} 750w"
+                    width="{{ stacked_block.settings.image.width }}"
+                    height="{{ stacked_block.settings.image.height }}"
+                    alt="{{ img_alt | escape }}"
+                    loading="lazy"
+                  >
                 {%- endif -%}
               {%- endfor -%}
 
