@@ -72,54 +72,54 @@
           "settings": {
             "rating": 5,
             "headline": "Works like a charm",
-            "quote": "",
-            "author": "Verified buyer",
+            "quote": "Finally an eco option that cleans as well as the chemical detergent I used for years, and it smells better.",
+            "author": "Anita",
             "product": "",
-            "product_label": ""
+            "product_label": "Laundry detergent"
           }
         },
         "review_Bx38j7": {
           "type": "review",
           "settings": {
             "rating": 5,
-            "headline": "Works like a charm",
-            "quote": "",
-            "author": "Verified buyer",
+            "headline": "Best dishwash ever",
+            "quote": "Our old dishwash left my help with dry, cracked skin. That stopped completely after we switched.",
+            "author": "Priya",
             "product": "",
-            "product_label": ""
+            "product_label": "Dishwash gel"
           }
         },
         "review_AejAwH": {
           "type": "review",
           "settings": {
             "rating": 5,
-            "headline": "Works like a charm",
-            "quote": "",
-            "author": "Verified buyer",
+            "headline": "Great product, great packaging",
+            "quote": "Very soft on hands with a lovely fragrance, and it feels good to be using far less plastic.",
+            "author": "Sunita",
             "product": "",
-            "product_label": ""
+            "product_label": "Liquid handwash"
           }
         },
         "review_PMgeXC": {
           "type": "review",
           "settings": {
             "rating": 5,
-            "headline": "Works like a charm",
-            "quote": "",
-            "author": "Verified buyer",
+            "headline": "Dog friendly",
+            "quote": "We switched because chemical floor cleaners were setting off my dog's allergies. No reactions since.",
+            "author": "Rohit S.",
             "product": "",
-            "product_label": ""
+            "product_label": "Floor cleaner"
           }
         },
         "review_cQ8hdh": {
           "type": "review",
           "settings": {
             "rating": 5,
-            "headline": "Works like a charm",
-            "quote": "",
+            "headline": "Sparkling taps again",
+            "quote": "Hard water had ruined our bathroom fittings. Two sprays and the scale wipes straight off, no scrubbing.",
             "author": "Verified buyer",
             "product": "",
-            "product_label": ""
+            "product_label": "Tap cleaner"
           }
         }
       },
@@ -203,14 +203,14 @@
           "type": "combo",
           "settings": {
             "product": "",
-            "title": "",
+            "title": "Laundry care bundle",
             "highlight": false,
             "flag_text": "",
-            "save_label": "",
-            "description": "",
+            "save_label": "You save ₹448",
+            "description": "Includes: Laundry Detergent, Fabric Conditioner & Machine Cleaner Powder. Softer, fresher wash, all in one box.",
             "fine_print": "Inclusive of all taxes · COD available",
             "cta_label": "Shop bundle",
-            "component_1_product": "",
+            "component_1_product": "the-collection-snowboard-hydrogen",
             "component_1_label": "",
             "component_2_product": "",
             "component_2_label": "",
@@ -222,14 +222,14 @@
           "type": "combo",
           "settings": {
             "product": "",
-            "title": "",
-            "highlight": false,
-            "flag_text": "",
-            "save_label": "",
-            "description": "",
+            "title": "Complete home bundle",
+            "highlight": true,
+            "flag_text": "Best value",
+            "save_label": "Biggest saving",
+            "description": "Includes: Kitchen Cleaner, Laundry Detergent, Floor Cleaner, Toilet Cleaner & Handwash. Our biggest saving box.",
             "fine_print": "Inclusive of all taxes · COD available",
             "cta_label": "Shop bundle",
-            "component_1_product": "",
+            "component_1_product": "the-videographer-snowboard",
             "component_1_label": "",
             "component_2_product": "",
             "component_2_label": "",
@@ -259,44 +259,47 @@
           "settings": {
             "product": "",
             "tag_text": "Starter",
+            "product_count": 2,
             "highlight": false,
-            "bullet_1": "",
-            "bullet_2": "",
+            "bullet_1": "Pick any two products",
+            "bullet_2": "Free shipping across India",
             "bullet_3": "",
             "cta_label": "Build this box",
-            "component_1_product": "",
-            "component_2_product": "",
-            "component_3_product": ""
+            "component_1_product": "selling-plans-ski-wax",
+            "component_2_product": "the-collection-snowboard-oxygen",
+            "component_3_product": "the-complete-snowboard"
           }
         },
         "tier_Mp7QfR": {
           "type": "tier",
           "settings": {
             "product": "",
-            "tag_text": "Starter",
-            "highlight": false,
-            "bullet_1": "",
-            "bullet_2": "",
-            "bullet_3": "",
+            "tag_text": "Most Popular",
+            "product_count": 3,
+            "highlight": true,
+            "bullet_1": "Pick any three products",
+            "bullet_2": "Covers Kitchen and laundry",
+            "bullet_3": "Free shipping across India",
             "cta_label": "Build this box",
-            "component_1_product": "",
-            "component_2_product": "",
-            "component_3_product": ""
+            "component_1_product": "the-collection-snowboard-liquid",
+            "component_2_product": "the-compare-at-price-snowboard",
+            "component_3_product": "selling-plans-ski-wax"
           }
         },
         "tier_WdWiEw": {
           "type": "tier",
           "settings": {
             "product": "",
-            "tag_text": "Starter",
+            "tag_text": "Whole Home",
+            "product_count": 5,
             "highlight": false,
-            "bullet_1": "",
-            "bullet_2": "",
-            "bullet_3": "",
+            "bullet_1": "Pick any five products",
+            "bullet_2": "Every room in one order",
+            "bullet_3": "Free shipping across India",
             "cta_label": "Build this box",
-            "component_1_product": "",
-            "component_2_product": "",
-            "component_3_product": ""
+            "component_1_product": "gift-card",
+            "component_2_product": "the-videographer-snowboard",
+            "component_3_product": "the-collection-snowboard-hydrogen"
           }
         }
       },
