@@ -103,6 +103,80 @@
         "show_text_below": false
       }
     },
+    "combos_8ptPD9": {
+      "type": "combos",
+      "blocks": {
+        "combo_c7z4hh": {
+          "type": "combo",
+          "settings": {
+            "product": "the-multi-managed-snowboard",
+            "title": "kitchen essentials",
+            "highlight": false,
+            "flag_text": "",
+            "save_label": "",
+            "description": "",
+            "fine_print": "Inclusive of all taxes · COD available",
+            "cta_label": "Shop bundle",
+            "component_1_product": "the-3p-fulfilled-snowboard",
+            "component_1_label": "",
+            "component_2_product": "",
+            "component_2_label": "",
+            "component_3_product": "",
+            "component_3_label": ""
+          }
+        },
+        "combo_4cFDKC": {
+          "type": "combo",
+          "settings": {
+            "product": "",
+            "title": "",
+            "highlight": false,
+            "flag_text": "",
+            "save_label": "",
+            "description": "",
+            "fine_print": "Inclusive of all taxes · COD available",
+            "cta_label": "Shop bundle",
+            "component_1_product": "",
+            "component_1_label": "",
+            "component_2_product": "",
+            "component_2_label": "",
+            "component_3_product": "",
+            "component_3_label": ""
+          }
+        },
+        "combo_6Nn48H": {
+          "type": "combo",
+          "settings": {
+            "product": "",
+            "title": "",
+            "highlight": false,
+            "flag_text": "",
+            "save_label": "",
+            "description": "",
+            "fine_print": "Inclusive of all taxes · COD available",
+            "cta_label": "Shop bundle",
+            "component_1_product": "",
+            "component_1_label": "",
+            "component_2_product": "",
+            "component_2_label": "",
+            "component_3_product": "",
+            "component_3_label": ""
+          }
+        }
+      },
+      "block_order": [
+        "combo_c7z4hh",
+        "combo_4cFDKC",
+        "combo_6Nn48H"
+      ],
+      "name": "Purelane Combos",
+      "settings": {
+        "kicker": "Pre-built to save you money",
+        "heading": "Best selling combos",
+        "lede": "Swipe through the boxes people order most. Each one is already priced below buying the same products on their own.",
+        "rail_note": "Tapping \"Shop bundle\" takes you straight to that bundle's product page — you can review everything before you pay."
+      }
+    },
     "shop_9aKUmk": {
       "type": "shop",
       "name": "Purelane Shop Grid",
@@ -145,6 +219,7 @@
   "order": [
     "hero_kFWF6J",
     "image_banner",
+    "combos_8ptPD9",
     "shop_9aKUmk",
     "featured_collection"
   ]
