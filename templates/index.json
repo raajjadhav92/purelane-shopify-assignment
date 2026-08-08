@@ -64,6 +64,80 @@
         "badge_3_text": "Zero harsh chemicals"
       }
     },
+    "reviews_fePB9D": {
+      "type": "reviews",
+      "blocks": {
+        "review_TTjwrT": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "headline": "Works like a charm",
+            "quote": "",
+            "author": "Verified buyer",
+            "product": "",
+            "product_label": ""
+          }
+        },
+        "review_Bx38j7": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "headline": "Works like a charm",
+            "quote": "",
+            "author": "Verified buyer",
+            "product": "",
+            "product_label": ""
+          }
+        },
+        "review_AejAwH": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "headline": "Works like a charm",
+            "quote": "",
+            "author": "Verified buyer",
+            "product": "",
+            "product_label": ""
+          }
+        },
+        "review_PMgeXC": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "headline": "Works like a charm",
+            "quote": "",
+            "author": "Verified buyer",
+            "product": "",
+            "product_label": ""
+          }
+        },
+        "review_cQ8hdh": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "headline": "Works like a charm",
+            "quote": "",
+            "author": "Verified buyer",
+            "product": "",
+            "product_label": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_TTjwrT",
+        "review_Bx38j7",
+        "review_AejAwH",
+        "review_PMgeXC",
+        "review_cQ8hdh"
+      ],
+      "name": "Purelane Reviews",
+      "settings": {
+        "kicker": "That's what they said",
+        "rating_value": "4.8",
+        "rating_text": "from 8,000+ reviews",
+        "homes_text": "Loved by 12 lakh+ homes"
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -177,6 +251,67 @@
         "rail_note": "Tapping \"Shop bundle\" takes you straight to that bundle's product page — you can review everything before you pay."
       }
     },
+    "bundles_kn8BwA": {
+      "type": "bundles",
+      "blocks": {
+        "tier_C48DVw": {
+          "type": "tier",
+          "settings": {
+            "product": "",
+            "tag_text": "Starter",
+            "highlight": false,
+            "bullet_1": "",
+            "bullet_2": "",
+            "bullet_3": "",
+            "cta_label": "Build this box",
+            "component_1_product": "",
+            "component_2_product": "",
+            "component_3_product": ""
+          }
+        },
+        "tier_Mp7QfR": {
+          "type": "tier",
+          "settings": {
+            "product": "",
+            "tag_text": "Starter",
+            "highlight": false,
+            "bullet_1": "",
+            "bullet_2": "",
+            "bullet_3": "",
+            "cta_label": "Build this box",
+            "component_1_product": "",
+            "component_2_product": "",
+            "component_3_product": ""
+          }
+        },
+        "tier_WdWiEw": {
+          "type": "tier",
+          "settings": {
+            "product": "",
+            "tag_text": "Starter",
+            "highlight": false,
+            "bullet_1": "",
+            "bullet_2": "",
+            "bullet_3": "",
+            "cta_label": "Build this box",
+            "component_1_product": "",
+            "component_2_product": "",
+            "component_3_product": ""
+          }
+        }
+      },
+      "block_order": [
+        "tier_C48DVw",
+        "tier_Mp7QfR",
+        "tier_WdWiEw"
+      ],
+      "name": "Purelane Bundles",
+      "settings": {
+        "kicker": "Build your bundle",
+        "heading": "One box. Every room.",
+        "lede": "Mix and match across kitchen, laundry, home and skin. One flat price, no code needed, free shipping either way."
+      }
+    },
     "shop_9aKUmk": {
       "type": "shop",
       "name": "Purelane Shop Grid",
@@ -218,8 +353,10 @@
   },
   "order": [
     "hero_kFWF6J",
+    "reviews_fePB9D",
     "image_banner",
     "combos_8ptPD9",
+    "bundles_kn8BwA",
     "shop_9aKUmk",
     "featured_collection"
   ]
