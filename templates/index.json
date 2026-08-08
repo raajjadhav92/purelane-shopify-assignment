@@ -103,6 +103,16 @@
         "show_text_below": false
       }
     },
+    "shop_9aKUmk": {
+      "type": "shop",
+      "name": "Purelane Shop Grid",
+      "settings": {
+        "kicker": "Bestsellers",
+        "heading": "Loved by 30,000 homes",
+        "collection": "bestsellers",
+        "products_count": 8
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -135,6 +145,7 @@
   "order": [
     "hero_kFWF6J",
     "image_banner",
+    "shop_9aKUmk",
     "featured_collection"
   ]
 }
