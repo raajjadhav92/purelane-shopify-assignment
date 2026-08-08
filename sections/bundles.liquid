@@ -1,0 +1,205 @@
+{{ 'purelane-bundles.css' | asset_url | stylesheet_tag }}
+
+<section class="purelane sec" id="{{ section.id }}">
+  <div class="wrap">
+
+    <div class="glass sec-pad rv" style="margin-bottom:16px">
+      <div class="panel-head" style="margin-bottom:0">
+        {%- if section.settings.kicker != blank -%}<span class="kicker">{{ section.settings.kicker }}</span>{%- endif -%}
+        {%- if section.settings.heading != blank -%}<h2 class="d2" style="margin-top:12px">{{ section.settings.heading }}</h2>{%- endif -%}
+        {%- if section.settings.lede != blank -%}<p class="lede" style="margin:0 auto">{{ section.settings.lede }}</p>{%- endif -%}
+      </div>
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="tiers">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign p = block.settings.product
+            assign tier_class = 'glass tier rv'
+            if block.settings.highlight
+              assign tier_class = tier_class | append: ' best'
+            endif
+          -%}
+          <article class="{{ tier_class }}" {{ block.shopify_attributes }}>
+            {%- if block.settings.tag_text != blank -%}<span class="tag">{{ block.settings.tag_text }}</span>{%- endif -%}
+
+            {%- assign tierpix_class = 'tierpix' -%}
+            {%- if block.settings.product_count > 3 -%}{%- assign tierpix_class = 'tierpix five' -%}{%- endif -%}
+            <div class="{{ tierpix_class }}" aria-hidden="true">
+              {%- for i in (1..3) -%}
+                {%- liquid
+                  case i
+                    when 1
+                      assign comp = block.settings.component_1_product
+                    when 2
+                      assign comp = block.settings.component_2_product
+                    when 3
+                      assign comp = block.settings.component_3_product
+                  endcase
+                -%}
+                {%- if comp and comp.featured_image -%}
+                  <img class="pimg" src="{{ comp.featured_image | image_url: width: 160 }}" width="{{ comp.featured_image.width }}" height="{{ comp.featured_image.height }}" alt="{{ comp.featured_image.alt | default: comp.title | escape }}" loading="lazy">
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+
+            {%- if block.settings.product_count > 0 -%}
+              <div class="qty">{{ block.settings.product_count }}<small>Products</small></div>
+            {%- endif -%}
+
+            {%- if p -%}
+              <div class="price">
+                {{ p.price | money }}
+                {%- if p.compare_at_price > p.price -%} <s>{{ p.compare_at_price | money }}</s>{%- endif -%}
+              </div>
+              {%- if block.settings.product_count > 0 -%}
+                {%- assign per_item = p.price | divided_by: block.settings.product_count -%}
+                <p class="body-s" style="font-size:12px">Flat {{ per_item | money }} per product</p>
+              {%- endif -%}
+            {%- endif -%}
+
+            {%- if block.settings.bullet_1 != blank or block.settings.bullet_2 != blank or block.settings.bullet_3 != blank -%}
+              <ul>
+                {%- if block.settings.bullet_1 != blank -%}
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>{{ block.settings.bullet_1 }}</li>
+                {%- endif -%}
+                {%- if block.settings.bullet_2 != blank -%}
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>{{ block.settings.bullet_2 }}</li>
+                {%- endif -%}
+                {%- if block.settings.bullet_3 != blank -%}
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>{{ block.settings.bullet_3 }}</li>
+                {%- endif -%}
+              </ul>
+            {%- endif -%}
+
+            {%- if p -%}
+              {%- liquid
+                assign btn_class = 'btn btn-ghost'
+                if block.settings.highlight
+                  assign btn_class = 'btn btn-primary'
+                endif
+              -%}
+              <a class="{{ btn_class }}" href="{{ p.url }}">
+                {{ block.settings.cta_label | default: 'Build this box' }}
+                {%- if block.settings.highlight -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m-5-6 6 6-6 6"/></svg>
+                {%- endif -%}
+              </a>
+            {%- endif -%}
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Purelane Bundles",
+  "tag": "section",
+  "class": "purelane-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker text",
+      "default": "Build your bundle"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "One box. Every room."
+    },
+    {
+      "type": "textarea",
+      "id": "lede",
+      "label": "Supporting text",
+      "default": "Mix and match across kitchen, laundry, home and skin. One flat price, no code needed, free shipping either way."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tier",
+      "name": "Bundle tier",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Bundle product",
+          "info": "Price, compare-at price and the button link all come from this product."
+        },
+        {
+          "type": "text",
+          "id": "tag_text",
+          "label": "Tag",
+          "default": "Starter"
+        },
+        {
+          "type": "number",
+          "id": "product_count",
+          "label": "Number of products in this tier"
+        },
+        {
+          "type": "checkbox",
+          "id": "highlight",
+          "label": "Highlight this tier (accent border + primary button)",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "bullet_1",
+          "label": "Bullet 1"
+        },
+        {
+          "type": "text",
+          "id": "bullet_2",
+          "label": "Bullet 2"
+        },
+        {
+          "type": "text",
+          "id": "bullet_3",
+          "label": "Bullet 3"
+        },
+        {
+          "type": "text",
+          "id": "cta_label",
+          "label": "Button label",
+          "default": "Build this box"
+        },
+        {
+          "type": "header",
+          "content": "Preview images (up to 3)"
+        },
+        {
+          "type": "product",
+          "id": "component_1_product",
+          "label": "Product 1"
+        },
+        {
+          "type": "product",
+          "id": "component_2_product",
+          "label": "Product 2"
+        },
+        {
+          "type": "product",
+          "id": "component_3_product",
+          "label": "Product 3"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Purelane Bundles",
+      "blocks": [
+        { "type": "tier" },
+        { "type": "tier" },
+        { "type": "tier" }
+      ]
+    }
+  ]
+}
+{% endschema %}
